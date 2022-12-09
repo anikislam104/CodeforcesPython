@@ -6,8 +6,6 @@ def take_input():
 
 def is_all_distinct(arr):
     if len(set(arr)) == len(arr):
-        print(len(set(arr)))
-        print(len(arr))
         return True
     else:
         return False
@@ -17,14 +15,15 @@ def make_array_and_check(number):
     arr = []
     while number != 0:
         arr.append(number % 10)
-        number = number / 10
+        number = int(number / 10)
+        # print(number)
     check = is_all_distinct(arr)
     return check
 
 
 def find_next(year):
     year += 1
-    while make_array_and_check(year) == False:
+    while not make_array_and_check(year):
         year += 1
     return year
 
